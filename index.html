@@ -1,0 +1,38 @@
+<html lang="en" >
+<meta charset="utf8"/>
+<head>
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body ng-app="dataApp" ng-cloak>
+  <div flex ng-controller="MainController" ng-init="getSectors()">
+    <md-content class="md-no-sticky">
+      <md-list-item flex layout="column" class="col-sm-3">
+        <div layout="column">
+          <md-subheader>Secteurs</md-subheader>
+          <md-checkbox flex ng-repeat="sector in sectors" ng-model="sector.id" ng-change="setSector(sector.id)" aria-label="Checkbox 2" class="groupX left"> {{ sector.name }}</md-checkbox>
+        </div>
+      </md-list-item>
+      <md-list-item flex layout="column" class="col-sm-3">
+        <div layout="column">
+          <md-subheader>Critères</md-subheader>
+          <md-checkbox flex ng-model="5" ng-change=setFilter(5) aria-label="Checkbox 2" class="groupX left">Chiffre d'affaire / Effectif salarié</md-checkbox>
+        </div>
+      </md-list-item>
+    </md-content>
+  </div>
+
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/MainController.js"></script>
+  <script src="js/Chart.js"></script>
+</body>
+</html>
