@@ -11,13 +11,24 @@
       <md-list-item flex layout="column" class="col-sm-3">
         <div layout="column">
           <md-subheader>Secteurs</md-subheader>
-          <md-checkbox flex ng-repeat="sector in sectors" ng-model="sector.id" ng-change="setSector(sector.id)" aria-label="Checkbox 2" class="groupX left"> {{ sector.name }}</md-checkbox>
+          <div ng-repeat="sector in sectors">
+          <md-checkbox flex ng-model="sector.id" ng-change="getSector(sector.id)" aria-label="Checkbox 2" class="groupX left"> {{ sector.name }}</md-checkbox>
+          </div>
+          {{sectors}}
         </div>
       </md-list-item>
       <md-list-item flex layout="column" class="col-sm-3">
         <div layout="column">
           <md-subheader>Critères</md-subheader>
           <md-checkbox flex ng-model="5" ng-change=setFilter(5) aria-label="Checkbox 2" class="groupX left">Chiffre d'affaire / Effectif salarié</md-checkbox>
+        </div>
+      </md-list-item>
+      <md-list-item flex layout="column" class="col-sm-3">
+        <div layout="column">
+          <md-subheader>Années</md-subheader>
+          <md-checkbox flex ng-model="2012" ng-change=setYear(2012) aria-label="Checkbox 2" class="groupX left">2012</md-checkbox>
+          <md-checkbox flex ng-model="2013" ng-change=setYear(2013) aria-label="Checkbox 2" class="groupX left">2013</md-checkbox>
+          <md-checkbox flex ng-model="2014" ng-change=setYear(2014) aria-label="Checkbox 2" class="groupX left">2014</md-checkbox>
         </div>
       </md-list-item>
     </md-content>

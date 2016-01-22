@@ -11,8 +11,6 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
     $http.get('http://datawarehouse-api.dev/api/secteurs/'+$sectorId)
       .success(function(data, status, headers){
         $scope.sectors[$sectorId] = data;
-        console.log(data);
-        console.log($scope.data['sectors']);
       })
       .error(function(data, status, headers){
         console.log("Error");
@@ -32,7 +30,6 @@ app.controller('MainController', ['$scope', '$http', function($scope, $http){
   $scope.clearSectors = function(){
     $scope.sectors = {};
   }
-
 
   $scope.setSector = function(sectorId){
     $scope.dataUrl = "/"+sectorId;
