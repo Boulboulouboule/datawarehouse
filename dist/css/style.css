@@ -1,0 +1,23 @@
+.sidebar{
+  background: rgb(245, 245, 245);
+  padding: 20px 20px 20px 20px;
+  border-radius: 3px;
+}
+
+.md-subheader{
+  background: rgb(245, 245, 245);
+  font-size: 1.3em;
+  color: rgb(231, 177, 138);
+}
+
+.graph{
+  padding: 20px;
+  margin: 20px;
+  max-height: 500px;
+  max-width:500px;
+}
+
+canvas{
+  height: 250px;
+  width:250px
+}
