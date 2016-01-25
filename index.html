@@ -31,52 +31,63 @@
         <md-subheader>Secteurs</md-subheader>
         <div class="nav nav-sidebar">
           <div ng-repeat="sector in sectors">
-          <md-checkbox flex ng-model="sector.checked" ng-change="getSector(sector.id)" aria-label="Checkbox 2" class="groupX left"> {{ sector.name }}</md-checkbox>
+          <md-checkbox flex ng-model="sector.checked" ng-change="setNames(sector)" aria-label="Checkbox 2" class="groupX left"> {{ sector.name }}</md-checkbox>
           </div>
+          <em>Filtre appliqué : {{names}}</em>
+
         </div>
         <div class="nav nav-sidebar">
           <md-subheader>Filtres</md-subheader>
           <div ng-repeat="filter in filters">
-          <md-checkbox flex ng-model="filter.checked" ng-change=setFilter(filter.id) aria-label="Checkbox 2" class="groupX left">{{ filter.filter }}</md-checkbox>
+          <md-checkbox flex ng-model="filter.checked" ng-change=setFilter(filter) aria-label="Checkbox 2" class="groupX left">{{ filter.name }}</md-checkbox>
           </div>
+          <em>Filtre appliqué : {{currentFilters}}</em>
+
         </div>
         <div class="nav nav-sidebar">
           <md-subheader>Années</md-subheader>
           <div ng-repeat="year in years">
-          <md-checkbox  flex ng-model="year.checked" aria-label="Checkbox 1" class="groupX left">{{ year.year }}</md-checkbox>
+          <md-checkbox  flex ng-model="year.checked" ng-change="setYears(year)" aria-label="Checkbox 1" class="groupX left">{{ year.year }}</md-checkbox>
           </div>
+          <em>Filtre appliqué : {{currentYears}}</em>
+
         </div>
       </div>
 
       <div class="col-sm-10 col-md-10">
 
-      <div ng-controller="LineCtrl" class="col-sm-5 col-md-5 graph">
+        <h3>Chiffre d'affaire en M€ par secteur par an</h3>
+        <div class="row">
 
+      <div ng-controller="LineCtrl" class="col-sm-5 col-md-5 graph">
         <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels"
         chart-legend="true" chart-series="series" chart-click="onClick" height="300"></canvas>
 
       </div>
-
-      <div ng-controller="DoughnutCtrl" class="col-sm-5 col-md-5 graph">
-        <canvas id="doughnut" class="chart chart-doughnut"
-          chart-data="data" chart-labels="labels" height="300">
-        </canvas>
-      </div>
-
       <div ng-controller="BarCtrl" class="col-sm-5 col-md-5 graph">
 
         <canvas id="bar" class="chart chart-bar" height="300"
-            chart-data="data" chart-labels="labels" chart-series="series">
+          chart-data="data" chart-labels="labels" chart-series="series" chart-legend="true">
         </canvas>
 
+      </div>
+    </div>
+    <h3>Pourcentage du chiffre d'affaire par secteur</h3>
+    <div class="row">
+
+      <div ng-controller="DoughnutCtrl" class="col-sm-5 col-md-5 graph">
+        <canvas id="doughnut" class="chart chart-doughnut"
+          chart-data="data" chart-labels="labels" height="300" chart-legend="true">
+        </canvas>
       </div>
 
       <div ng-controller="PolarAreaCtrl" class="col-sm-5 col-md-5 graph">
         <canvas id="polar-area" class="chart chart-polar-area"
-          chart-data="data" chart-labels="labels" height="300">
+          chart-data="data" chart-labels="labels" height="300" chart-legend="true">
         </canvas>
 
       </div>
+    </div>
     </div>
   </div>
 </div>
