@@ -206,10 +206,6 @@ app.factory('Data', function($http, $q){
        return data;
      },
 
-     setDoughnutData: function(data){
-       factory.doughnutData = data;
-     },
-
      getLineLabels: function(){
        return factory.lineLabels;
      },
