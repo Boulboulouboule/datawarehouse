@@ -152,6 +152,15 @@ app.factory('Data', function($http, $q){
          }
          if (factory.currentFilters.indexOf(filter.name) == -1) {
            factory.currentFilters.push(filter.name);
+           console.log(factory.data);
+           factory.data=[];
+           factory.data = [
+             [Math.round((Math.random()*1000)), Math.round((Math.random()*1000)), Math.round((Math.random()*1000))],
+             [Math.round((Math.random()*1000)), Math.round((Math.random()*1000)), Math.round((Math.random()*1000))],
+             [Math.round((Math.random()*1000)), Math.round((Math.random()*1000)), Math.round((Math.random()*1000))],
+             [Math.round((Math.random()*1000)), Math.round((Math.random()*1000)), Math.round((Math.random()*1000))]
+           ];
+           console.log(factory.data);
            console.log('Ajouté !');
 
          } else {
@@ -159,6 +168,13 @@ app.factory('Data', function($http, $q){
 
          }
        } else if (filter.checked == false) {
+         factory.data = [
+           [0,0,0],
+           [0,0,0],
+           [0,0,0],
+           [0,0,0]
+         ],
+         console.log(factory.data);
          factory.currentFilters.splice(factory.currentFilters.indexOf(filter.name),1);
          console.log('Retiré !');
 
@@ -202,7 +218,7 @@ app.factory('Data', function($http, $q){
      },
 
      getData: function(){
-       var data = JSON.parse("["+factory.data+"]")
+       var data = JSON.parse("["+factory.data+"]");
        return data;
      },
 

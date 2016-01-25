@@ -68,6 +68,7 @@ app.controller('MainController', ['$scope', '$http', 'Data', function($scope, $h
 
   $scope.setFilter= function(filter){
     Data.setFilter(filter);
+    Data.getData();
     $scope.filters = Data.filters;
 
   }
